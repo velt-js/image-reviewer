@@ -6,7 +6,7 @@ import { VeltProvider } from "@veltdev/react"
 
 export default function Home() {
   return (
-    <VeltProvider apiKey="0oIhv22wimDLaFU67BTP">
+    <VeltProvider apiKey="j3AwoBkuQMTEgeqrmPve">
         <VeltCollaboration />
         <DocumentViewer />
     </VeltProvider>

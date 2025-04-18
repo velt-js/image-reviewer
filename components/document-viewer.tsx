@@ -17,7 +17,7 @@ import {
 } from "lucide-react"
 import { Switch } from "@/components/ui/switch"
 import { Button } from "@/components/ui/button"
-import { VeltPresence, VeltSidebarButton } from "@veltdev/react"
+import { VeltCommentsSidebar, VeltPresence, VeltSidebarButton } from "@veltdev/react"
 
 export default function DocumentViewer() {
   const [showNotes, setShowNotes] = useState(true)
@@ -113,6 +113,10 @@ export default function DocumentViewer() {
               className="w-full h-auto"
             />
           </div>
+          <div className="w-1/4">
+            <VeltCommentsSidebar embedMode={true} pageMode={true} shadowDom={false} />
+          </div>
+
         </div>
       </div>
     </div>
