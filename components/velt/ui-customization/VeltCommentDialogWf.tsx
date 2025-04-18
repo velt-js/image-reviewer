@@ -5,7 +5,7 @@ const VeltCommentDialogWf = () => {
   return (
     <VeltCommentDialogWireframe variant="sidebar">
       <VeltCommentDialogWireframe.Header>
-        <VeltButtonWireframe id="expand-comment" type="button-toggle" className="cursor-pointer">
+        <VeltButtonWireframe id="expand-comment" type="button" className="cursor-pointer">
           <div className="flex items-center justify-between">
             <div className="text-lg font-bold">
               Totality Review

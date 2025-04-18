@@ -17,7 +17,7 @@ import {
 } from "lucide-react"
 import { Switch } from "@/components/ui/switch"
 import { Button } from "@/components/ui/button"
-import { VeltCommentsSidebar, VeltCommentTool, VeltPresence, VeltSidebarButton } from "@veltdev/react"
+import { VeltCommentsSidebar, VeltCommentTool, VeltPresence } from "@veltdev/react"
 
 export default function DocumentViewer() {
   const [showNotes, setShowNotes] = useState(true)
@@ -47,6 +47,7 @@ export default function DocumentViewer() {
             <p className="text-gray-500 text-sm">N-NY-US-0123</p>
           </div>
           <div className="flex items-center gap-4">
+            {/* [VELT] Presence Component */}
             <VeltPresence />
             <div className="flex items-center gap-2">
               <Switch checked={showNotes} onCheckedChange={setShowNotes} className="data-[state=checked]:bg-sky-500" />
@@ -79,6 +80,7 @@ export default function DocumentViewer() {
           </div>
 
           <div className="flex items-center gap-2">
+            {/* [VELT] Comment tool */}
             <VeltCommentTool />
             <Button variant="ghost" size="icon" className="h-9 w-9 rounded-md">
               <Maximize2 size={18} />
@@ -113,6 +115,7 @@ export default function DocumentViewer() {
           </div>
         </div>
         <div className="w-1/4">
+          {/* [VELT] Comments sidebar */}
           <VeltCommentsSidebar embedMode={true} shadowDom={false} />
         </div>
       </div>

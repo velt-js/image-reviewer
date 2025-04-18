@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useVeltClient } from '@veltdev/react';
 
 // [VELT] Initializes the current signed in user in Velt.
