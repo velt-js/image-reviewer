@@ -1,4 +1,4 @@
-import { useVeltClient, useVeltEventCallback, VeltComments, VeltCommentsSidebar } from '@veltdev/react';
+import { useVeltClient, useVeltEventCallback, VeltComments } from '@veltdev/react';
 import VeltInitializeUser from './VeltInitializeUser';
 import VeltInitializeDocument from './VeltInitializeDocument';
 import VeltCustomization from './ui-customization/VeltCustomization';
@@ -13,14 +13,15 @@ export const VeltCollaboration = () => {
 
   useEffect(() => {
     if (veltButtonClickEventData && client) {
+      console.log('veltButtonClickEventData', veltButtonClickEventData);
       if (veltButtonClickEventData.buttonContext.clickedButtonId === 'expand-comment') {
-        // client.setUiState({
-        //   expandedComment: veltButtonClickEventData.commentAnnotation?.annotationId,
-        // });
+        client.setUiState({
+          expandedComment: veltButtonClickEventData.commentAnnotation?.annotationId,
+          testarray: ['test1', 'test2', 'test3'],
+        });
+        
         if (veltButtonClickEventData.buttonContext.selections?.ungrouped['expand-comment']) {
-          client.setUiState({
-            expandedComment: veltButtonClickEventData.commentAnnotation?.annotationId,
-          });
+          
         } else {
           client.setUiState({
             expandedComment: null,
@@ -35,7 +36,7 @@ export const VeltCollaboration = () => {
       <VeltInitializeUser />
       <VeltInitializeDocument />
       <VeltCustomization />
-      <VeltComments />
+      <VeltComments textMode={false} />
     </>
   );
 };

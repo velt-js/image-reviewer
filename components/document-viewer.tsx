@@ -17,7 +17,7 @@ import {
 } from "lucide-react"
 import { Switch } from "@/components/ui/switch"
 import { Button } from "@/components/ui/button"
-import { VeltCommentsSidebar, VeltPresence, VeltSidebarButton } from "@veltdev/react"
+import { VeltCommentsSidebar, VeltCommentTool, VeltPresence, VeltSidebarButton } from "@veltdev/react"
 
 export default function DocumentViewer() {
   const [showNotes, setShowNotes] = useState(true)
@@ -26,7 +26,6 @@ export default function DocumentViewer() {
 
   return (
     <div className="min-h-screen bg-slate-100">
-      <VeltPresence />
         {/* Header Navigation */}
         <div className="p-4 flex items-center gap-2">
           <Link href="#" className="text-sky-500">
@@ -48,6 +47,7 @@ export default function DocumentViewer() {
             <p className="text-gray-500 text-sm">N-NY-US-0123</p>
           </div>
           <div className="flex items-center gap-4">
+            <VeltPresence />
             <div className="flex items-center gap-2">
               <Switch checked={showNotes} onCheckedChange={setShowNotes} className="data-[state=checked]:bg-sky-500" />
               <span className="text-sm text-gray-700">Show notes</span>
@@ -79,10 +79,7 @@ export default function DocumentViewer() {
           </div>
 
           <div className="flex items-center gap-2">
-            <VeltSidebarButton />
-            <Button variant="ghost" size="icon" className="h-9 w-9 rounded-md">
-              <MessageSquare size={18} />
-            </Button>
+            <VeltCommentTool />
             <Button variant="ghost" size="icon" className="h-9 w-9 rounded-md">
               <Maximize2 size={18} />
             </Button>
@@ -93,16 +90,17 @@ export default function DocumentViewer() {
               <Printer size={18} />
             </Button>
           </div>
-
-          <Button variant="outline" className="text-sm flex items-center gap-1">
-            Version 1.2
-            <ChevronDown size={16} />
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" className="text-sm flex items-center gap-1">
+              Version 1.2
+              <ChevronDown size={16} />
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Document Content - Just the image */}
-      <div className="px-6 pb-6">
+      <div className="flex px-6 pb-6 justify-between">
         <div className="flex justify-center">
           <div className="bg-white rounded-lg shadow-sm overflow-hidden max-w-4xl">
             <Image
@@ -113,10 +111,9 @@ export default function DocumentViewer() {
               className="w-full h-auto"
             />
           </div>
-          <div className="w-1/4">
-            <VeltCommentsSidebar embedMode={true} pageMode={true} shadowDom={false} />
-          </div>
-
+        </div>
+        <div className="w-1/4">
+          <VeltCommentsSidebar embedMode={true} shadowDom={false} />
         </div>
       </div>
     </div>
